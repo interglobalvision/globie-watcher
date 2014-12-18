@@ -1,0 +1,15 @@
+{
+  "name": "globie-watcher",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Interglobal Vision",
+  "license": "ISC",
+  "devDependencies": {
+    "slack-client": "^1.2.2",
+    "chokidar": "^0.12.5"
+  }
+}
