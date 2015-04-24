@@ -6,5 +6,5 @@ Watcher to let others know when the Sync (btsync) folder has changed
 ```
   npm install -g forever
   npm install
-  forever start SYNC_DIR=path/to/sync/dir SLACK_API=slackapihere index.js
+  SYNC_DIR=path/to/sync/dir SLACK_API=slackapikeyhere forever start index.js
 ```
