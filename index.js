@@ -1,3 +1,7 @@
+// Load dotenv and env variables
+var dotenv = require('dotenv');
+dotenv.load();
+
 var chokidar = require('chokidar');
 var SlackClient = require('slack-client');
 
