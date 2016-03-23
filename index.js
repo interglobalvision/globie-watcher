@@ -15,7 +15,7 @@ globieBot.login();
 
 // Set watcher
 var watcher = chokidar.watch(syncDirectory, {
-  ignored: /\.!sync|\.sync|\.DS_Store/,
+  ignored: /\.!sync|\.sync|\.bts|\.DS_Store/,
   persistent: true,
   ignoreInitial: true
 });
