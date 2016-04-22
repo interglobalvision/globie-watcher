@@ -35,27 +35,27 @@ watcher
   .on('add', function(path) {
     path = clearPath(path);
     console.log('File', path, 'has been added');
-    sendMessage('File ' + path + ' has been added', path);
+    sendMessage('A file has been added', path, '#00FF00');
   })
   .on('addDir', function(path) {
     path = clearPath(path);
     console.log('Directory', path, 'has been added');
-    sendMessage('Directory ' + path + ' has been added', path);
+    sendMessage('A directory has been added', path, '#00FF00');
   })
   .on('change', function(path) {
     path = clearPath(path);
     console.log('File', path, 'has been changed');
-    sendMessage('File ' + path + ' has been changed', path);
+    sendMessage('A file has been changed', path, '#B0E0E6');
   })
   .on('unlink', function(path) {
     path = clearPath(path);
     console.log('File', path, 'has been removed');
-    sendMessage('File ' + path + ' has been removed', path);
+    sendMessage('A file has been removed', path, '#FF0000');
   })
   .on('unlinkDir', function(path) {
     path = clearPath(path);
     console.log('Directory', path, 'has been removed');
-    sendMessage('Directory ' + path + ' has been removed', path);
+    sendMessage('A directory has been removed', path, '#FF0000');
   })
   .on('error', function(error) {console.error('Error happened', error);})
   .on('ready', function() {console.info('Initial scan complete. Ready for changes.')})
@@ -67,28 +67,32 @@ var clearPath = function (path) {
   return path;
 }
 
-var sendMessage = function(msg, path) {
+var sendMessage = function(title, path, color) {
   var channel = '#general';
+  var message = path;
 
   // check if path is active projects
   if (path.indexOf('Projects/Active Work/') > -1) {
 
     // get name of sub folder of Active Work
     var projectName = path.replace('Projects/Active Work/', '');
+
     projectName = projectName.substring(0, projectName.indexOf('/'));
-
-    console.log('Project name:', projectName);
-
     channel = '#' + projectName;
+
+    message = message.replace('Projects/Active Work/' + projectName + '/', '')
   }
 
   bot.sendWebhook({
-    text: msg,
+    text: title,
+    attachments: [{
+      text: message,
+      color: color
+    }],
     channel: channel,
-  },function(err,res) {
-    if(err) {
+  }, function(err,res) {
+    if (err) {
       return console.log(err);
     }
-    console.log(res);
   });
 };
