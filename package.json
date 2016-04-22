@@ -12,11 +12,9 @@
   },
   "author": "Interglobal Vision",
   "license": "ISC",
-  "devDependencies": {
-    "chokidar": "^1.4.3",
-    "dotenv": "^2.0.0"
-  },
   "dependencies": {
+    "chokidar": "^1.4.3",
+    "dotenv": "^2.0.0",
     "botkit": "^0.1.1"
   }
 }
