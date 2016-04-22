@@ -17,7 +17,6 @@
     "dotenv": "^2.0.0"
   },
   "dependencies": {
-    "@slack/client": "^2.3.0",
     "botkit": "^0.1.1"
   }
 }
