@@ -10,10 +10,13 @@ This bot also watches the folder `Projects/Active Work/` for subfolders that mat
   npm install
   cp .env.example .env
 ```
+
 Edit the .env
--
--
--
+
+ - SYNC_DIR
+ - SLACK_API
+ - WEBHOOK_URL
+ 
 ```
   node index.js
 ```
